@@ -1,5 +1,5 @@
 <footer>
-    Hai
+    <p>ini adalah footer</p>
 </footer>
 
 </body>
