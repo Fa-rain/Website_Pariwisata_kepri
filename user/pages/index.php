@@ -25,23 +25,46 @@ include '../includes/header.php';
     <div class="rekomendasi"style="padding-bottom:100px">
         <div class="subjudul">
             <h1>Rekomendasi Wisata Menarik</h1>
+            <img src="../assets/images/website_banner.png" width="100%" alt="">
         </div>
     </div>
     
     <!-- DESTINASI -->
-    <div class="destinasi">
-        <div class="subjudul">
-            <h1>Destinasi Wisata yang Menakjubkan</h1>
-        </div>
-        <div class="opsi_kategori">
-            <?php
-                $kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
-                while($row = mysqli_fetch_assoc($kategori)){
-                    echo "<button class='btn-kategori' data-id='{$row['id_kategori']}'>{$row['nama_kategori']}</button>";
-                }
-            ?>
-        </div>
+<div class="destinasi">
+
+    <div class="subjudul">
+        <h1>Destinasi Wisata yang Menakjubkan</h1>
     </div>
+
+    <!-- KATEGORI BUTTON -->
+    <div class="opsi_kategori">
+        <?php
+        $queryKategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
+        while($kategori = mysqli_fetch_assoc($queryKategori)){ ?>
+            
+            <button class="btn-kategori" data-id="<?= $kategori['id_kategori'] ?>">
+                <?= $kategori['nama_kategori'] ?>
+            </button>
+
+        <?php } ?>
+    </div>
+
+    <!-- TEMPAT CARD WISATA AKAN MUNCUL -->
+    <div class="wisata-by-kategori" id="wisata-container">
+        <p>Pilih kategori untuk melihat daftar wisata.</p>
+    </div>
+
+</div>
+
+    <!-- RENCANA PERJALANAN -->
+     <div class="rencana_perjalanan">
+        <div class="subjudul">
+            <h1>Rencanakan Perjalananmu</h1>
+        </div>
+        <div class="card_rencana_perjalanan">
+            
+        </div>
+     </div>
 
 </main>
     
@@ -49,5 +72,21 @@ include '../includes/header.php';
 <?php
 include '../includes/footer.php';
 ?>
+
+<script>
+document.querySelectorAll('.btn-kategori').forEach(btn => {
+    btn.addEventListener('click', function () {
+
+        let id = this.dataset.id;
+
+        fetch("../process/get_wisata.php?id_kategori=" + id)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('wisata-container').innerHTML = data;
+            });
+    });
+});
+</script>
+
 </body>
 </html>

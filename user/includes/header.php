@@ -24,9 +24,9 @@
             </div>
 
             <div class="nav-mid">
-                <li><a href="#" id="openModal">Rekomendasi Ikonik</a></li>
+                <li><a href="#" id="">Rekomendasi Ikonik</a></li>
                 <li><a href="#" id="openModal">Destinasi Wisata</a></li>
-                <li><a href="#" id="openModal">Rencanakan Perjalananmu</a></li>
+                <li><a href="#" id="">Rencanakan Perjalananmu</a></li>
             </div>
 
             <div class="nav-right">
@@ -42,11 +42,12 @@
         <span class="close">&times;</span>
         <h2>Kategori Wisata</h2>
         <div class="category-grid">
-            <div class="category">Alam</div>
-            <div class="category">Budaya</div>
-            <div class="category">Bahari</div>
-            <div class="category">Kuliner</div>
-            <div class="category">Modern</div>
+            <?php
+                $queryKategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
+                while($kategori = mysqli_fetch_assoc($queryKategori)){ 
+            ?>
+                <button class='category' ><?=$kategori['nama_kategori']?></button>
+            <?php } ?>
         </div>
         </div>
     </div>
