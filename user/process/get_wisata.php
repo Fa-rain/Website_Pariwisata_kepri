@@ -16,7 +16,7 @@ if(mysqli_num_rows($query) == 0){
 
 echo "<div class='card-container'>";
 
-while($w = mysqli_fetch_assoc($query)){
+while($w = mysqli_fetch_assoc($query)){ ;
     echo "
         <div class='card-wisata'>
             <img src='../assets/images/{$w['path']}' alt='{$w['nama_wisata']}'>

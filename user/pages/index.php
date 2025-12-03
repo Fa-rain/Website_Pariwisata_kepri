@@ -1,6 +1,10 @@
 <?php
 include '../includes/koneksi.php';
 include '../includes/header.php';
+
+$sql = "SELECT * FROM rencana_perjalanan";
+$query = mysqli_query($koneksi, $sql);
+
 ?>
 <main>
     <!-- PENGENALAN -->
@@ -61,9 +65,17 @@ include '../includes/header.php';
         <div class="subjudul">
             <h1>Rencanakan Perjalananmu</h1>
         </div>
-        <div class="card_rencana_perjalanan">
-            
-        </div>
+        <?php
+        while($r = mysqli_fetch_assoc($query)) {
+            echo "
+                <div class='card_rencana_perjalanan'>
+                <img src='../assets/images/{$r['gambar']}' alt='{$r['judul']}'>
+                <h3>{$r['judul']}</h3>
+                </div>
+                ";
+        }
+       
+        ?>
      </div>
 
 </main>
