@@ -22,6 +22,75 @@
             align-items: center;
             height: 100vh;
         }
+
+        .btn-login-detail {
+            background: #0077b6;
+            padding: 12px 20px;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        /* Container login */
+        .login-container {
+            background: #ffffff;
+            width: 350px;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* Judul */
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Label */
+        .login-container label {
+            float: left;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Input */
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: 0.2s;
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: #0077b6;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,119,182,0.2);
+        }
+
+        /* Tombol */
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: #0077b6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background: #005f8a;
+        }
     </style>
 </head>
 <body>

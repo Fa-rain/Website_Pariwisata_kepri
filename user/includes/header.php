@@ -18,7 +18,7 @@
             <div class="nav-left">
                 <li>
                     <a href="index.php">
-                        <img src="../assets/images/logo_pariwisata_kepri.png" alt="logo" width="" height="200%" class="logo">
+                        <img src="../assets/images/builder/logo_pariwisata_kepri.png" alt="logo" width="" height="200%" class="logo">
                     </a>
                 </li>
             </div>
@@ -30,53 +30,15 @@
             </div>
 
             <div class="nav-right">
-                <li><a href="#"><img src="../assets/images/heart-icon.png" alt="favorite" class="icon"></a></li>
-                <li><a href="#"><img src="../assets/images/user-icon.png" alt="account" class="icon"></a></li>
+                <li><a href="#"><img src="../assets/images/builder/heart-icon.png" alt="favorite" class="icon"></a></li>
+                <li><a href="#"><img src="../assets/images/builder/user-icon.png" alt="account" class="icon"></a></li>
             </div>
         </ul>
     </div>
 
-    <!-- MODAL -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Kategori Wisata</h2>
-        <div class="category-grid">
-            <?php
-                $queryKategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
-                while($kategori = mysqli_fetch_assoc($queryKategori)){ 
-            ?>
-                <button class='category' ><?=$kategori['nama_kategori']?></button>
-            <?php } ?>
-        </div>
-        </div>
-    </div>
-
     <!-- HERO -->
      <div class="hero">
-        <img src="../assets/images/website_banner.png" alt="" class="banner">
+        <img src="../assets/images/builder/website_banner.png" alt="" class="banner">
      </div>
 
-    <script>
-        const modal = document.getElementById("modal");
-        const btn = document.getElementById("openModal");
-        const span = document.getElementsByClassName("close")[0];
-
-        btn.onclick = function() {
-        modal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-        }
-
-        span.onclick = function() {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-        }
-
-        window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-        }
-    </script>
 </header>

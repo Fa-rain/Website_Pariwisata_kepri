@@ -7,10 +7,9 @@ $id = $_GET['id_wisata'] ?? 0;
 
 // Query data wisata
 $query = mysqli_query($koneksi, 
-"SELECT w.*, m.path 
- FROM wisata w 
- JOIN media m ON w.id_wisata = m.id_wisata
- WHERE w.id_wisata = '$id' LIMIT 1");
+"SELECT *
+ FROM wisata 
+ WHERE id_wisata = '$id' LIMIT 1");
 
 $wisata = mysqli_fetch_assoc($query);
 
@@ -33,7 +32,7 @@ if (!$wisata) {
 
     <!-- Hero Image -->
     <div class="hero-image">
-        <img src="../assets/images/<?= $wisata['path'] ?>" alt="<?= $wisata['nama_wisata'] ?>">
+        <img src="../../images/wisata/<?= $wisata['path'] ?>" alt="<?= $wisata['nama_wisata'] ?>">
     </div>
 
     <!-- Konten Detail -->

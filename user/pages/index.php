@@ -29,7 +29,7 @@ $query = mysqli_query($koneksi, $sql);
     <div class="rekomendasi"style="padding-bottom:100px">
         <div class="subjudul">
             <h1>Rekomendasi Wisata Menarik</h1>
-            <img src="../assets/images/website_banner.png" width="100%" alt="">
+            <img src="../images/builder/website_banner.png" width="100%" alt="">
         </div>
     </div>
     
@@ -69,7 +69,7 @@ $query = mysqli_query($koneksi, $sql);
         while($r = mysqli_fetch_assoc($query)) {
             echo "
                 <div class='card_rencana_perjalanan'>
-                <img src='../assets/images/{$r['gambar']}' alt='{$r['judul']}'>
+                <img src='../../images/wisata/{$r['gambar']}' alt='{$r['judul']}'>
                 <h3>{$r['judul']}</h3>
                 </div>
                 ";

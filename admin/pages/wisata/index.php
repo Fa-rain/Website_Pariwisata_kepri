@@ -1,6 +1,6 @@
 <?php
 
-include '../includes/koneksi.php';
+include '../../includes/koneksi.php';
 
 $sql = 'SELECT path, nama_wisata, nama_kategori FROM wisata w JOIN kategori k ON
         w.id_kategori = k.id_kategori';
@@ -27,7 +27,7 @@ $query = mysqli_query($koneksi, $sql);
         </tr>
         <?php while($w = mysqli_fetch_assoc($query)) {?>
         <tr>
-            <td><img src='../../images/wisata/<?= $w['path']?>' alt='<?= $w['nama_wisata']?>' width = '20%'></td>
+            <td><img src='../../../images/wisata/<?= $w['path']?>' alt='<?= $w['nama_wisata']?>' width = '20%'></td>
             <td><?= $w['nama_wisata']?></td>
             <td><?= $w['nama_kategori']?></td>
             <td>
