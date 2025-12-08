@@ -4,14 +4,14 @@ session_start();
 
 include '../includes/koneksi.php';
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['id_user'])) {
     header('Location: login.php?login_dulu');
     exit;
 }
 
-$username = mysqli_real_escape_string($koneksi, $_SESSION['username']);
+$id_user = (int) $_SESSION['id_user'];
 
-$sql = "SELECT * FROM user WHERE username = '$username'";
+$sql = "SELECT * FROM user WHERE id_user = $id_user LIMIT 1";
 $query = mysqli_query($koneksi, $sql);
 
 
@@ -28,10 +28,11 @@ $query = mysqli_query($koneksi, $sql);
     <main>
         <div class="card-profil">
             <?php while($p = mysqli_fetch_assoc($query)) {?>
-                <p><?= $p['username']?></p>
-                <p><?= $p['email']?></p>
+                <p><b>Username : </b><?= $p['username']?></p>
+                <p><b>Email    :</b><?= $p['email']?></p>
+                <p><b>Password :</b>************</p>
             <?php } ?>
-            <button><a href="edit_profil.php">Detail</a></button>
+            <button><a href="edit_profil.php?id_user=<?= $id_user;?>">Edit</a></button>
 
         </div>
     </main>

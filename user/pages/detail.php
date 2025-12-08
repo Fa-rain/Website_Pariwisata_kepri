@@ -1,7 +1,8 @@
 <?php
-include '../includes/koneksi.php';
-session_start();
 
+session_start();
+include '../includes/koneksi.php';
+include '../includes/header.php';
 // Ambil ID wisata dari URL
 $id = $_GET['id_wisata'] ?? 0;
 
@@ -45,7 +46,7 @@ if (!$wisata) {
 
         <!-- Tombol Tambah ke Favorit -->
         <?php if (isset($_SESSION['id_user'])) { ?>
-            <form action="tambah_favorit.php" method="POST">
+            <form action="../process/proses_tambah_favorit.php" method="POST">
                 <input type="hidden" name="id_wisata" value="<?= $wisata['id_wisata'] ?>">
                 <button type="submit" class="btn-favorit">Tambah ke Favorit</button>
             </form>
