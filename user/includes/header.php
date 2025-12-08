@@ -31,7 +31,7 @@
 
             <div class="nav-right">
                 <li><a href="#"><img src="../assets/images/builder/heart-icon.png" alt="favorite" class="icon"></a></li>
-                <li><a href="#"><img src="../assets/images/builder/user-icon.png" alt="account" class="icon"></a></li>
+                <li><a href="../pages/profil.php"><img src="../assets/images/builder/user-icon.png" alt="account" class="icon"></a></li>
             </div>
         </ul>
     </div>

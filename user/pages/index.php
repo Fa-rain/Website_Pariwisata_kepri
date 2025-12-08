@@ -29,7 +29,7 @@ $query = mysqli_query($koneksi, $sql);
     <div class="rekomendasi"style="padding-bottom:100px">
         <div class="subjudul">
             <h1>Rekomendasi Wisata Menarik</h1>
-            <img src="../images/builder/website_banner.png" width="100%" alt="">
+            <a href="rekomendasi.php"><img src="../assets/images/builder/website_banner.png" width="100%" alt=""></a>
         </div>
     </div>
     
