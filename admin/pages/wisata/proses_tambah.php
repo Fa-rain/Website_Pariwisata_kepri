@@ -35,7 +35,11 @@ if(!move_uploaded_file($path['tmp_name'], $target)){
 $sql = "INSERT INTO wisata(nama_wisata, deskripsi, id_kategori, path)
         VALUES ('$nama_wisata', '$deskripsi', '$id_kategori', '$nama_baru')";
 
-mysqli_query($koneksi, $sql);
+$query = mysqli_query($koneksi, $sql);
 
-echo "Berhasil ditambahkan!";
+if($query){
+    header("location:index.php?berhasil");
+}else{
+    header("location:index.php?gagal");
+}
 ?>

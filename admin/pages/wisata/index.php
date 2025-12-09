@@ -2,7 +2,7 @@
 
 include '../../includes/koneksi.php';
 
-$sql = 'SELECT path, nama_wisata, nama_kategori FROM wisata w JOIN kategori k ON
+$sql = 'SELECT id_wisata, path, nama_wisata, nama_kategori FROM wisata w JOIN kategori k ON
         w.id_kategori = k.id_kategori';
 $query = mysqli_query($koneksi, $sql);
 ?>
@@ -31,9 +31,10 @@ $query = mysqli_query($koneksi, $sql);
             <td><?= $w['nama_wisata']?></td>
             <td><?= $w['nama_kategori']?></td>
             <td>
-                <a href="edit_wisata.php">Edit</a>
-                <a href="hapus_wisata.php">Hapus</a>
-                <a href="detail_wisata.php">Detail</a>
+                <a href="edit_wisata.php?id_wisata=<?= $w['id_wisata']?>">Edit</a>
+                <a href="hapus_wisata.php?id_wisata=<?= $w['id_wisata']?>">Hapus</a>
+                <a href="detail_wisata.php?id_wisata=<?= $w['id_wisata']?>">Detail</a>
+                
             </td>
         </tr>
         <?php } ?>
