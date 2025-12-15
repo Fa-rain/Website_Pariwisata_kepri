@@ -3,6 +3,7 @@
 session_start();
 
 include '../includes/koneksi.php';
+include '../includes/header.php';
 
 if (!isset($_SESSION['id_user'])) {
     header('Location: login.php?login_dulu');
@@ -23,20 +24,29 @@ $query = mysqli_query($koneksi, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorit</title>
+    <style>
+        
+    </style>
 </head>
 <body>
     <main>
-        <h1>Wisata Favorit Anda</h1>
-        <?php while($f = mysqli_fetch_assoc($query)) { ?>
-        <div class="card-favorit">
-            <img src="../../images/wisata/<?= $f['path']?>" alt="<?= $f['nama_wisata']?>" width= "20%">
-            <p><?= $f['nama_wisata']?></p>
-            <button><a href="hapus_favorit.php?id_favorit=<?= $f['id_favorit']?>">Hapus</a></button>
-        </div>
-        <?php } ?>
-        
-       
+        <section class = "favorit-container">
+            <header>
+                <center><h1>Wisata Favorit Anda</h1></center>
+            </header>
             
+            <div class="card-favorit-grid">
+                <?php while($f = mysqli_fetch_assoc($query)) { ?>
+                <article class="card-favorit">
+                    <img src="../../images/wisata/<?= $f['path']?>" alt="<?= $f['nama_wisata']?>" width= "20%">
+                    <p><?= $f['nama_wisata']?></p>
+                    <button><a href="../process/hapus_favorit.php?id_favorit=<?= $f['id_favorit']?>">Hapus</a></button>
+                </article>
+                <?php } ?>
+            </div>
+            
+        </section>
+        
     </main>
 </body>
 </html>

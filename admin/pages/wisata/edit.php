@@ -7,7 +7,6 @@ $queryKategori = mysqli_query($koneksi, $sqlKategori);
 
 $sql = "SELECT * FROM wisata WHERE id_wisata = '$id_wisata'";
 $query = mysqli_query($koneksi, $sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +14,15 @@ $query = mysqli_query($koneksi, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <title>Tambah Data Wisata</title>
 </head>
 <body>
-
-    <h1>Tambah Wisata</h1>
-
+    <div class="header">
+        <h1>Perbaharui Wisata</h1>
+    </div>
+    
+    
     <form action="proses_edit.php" method="POST" enctype="multipart/form-data">
         <?php while($w = mysqli_fetch_assoc($query)) { ?>
         

@@ -51,7 +51,7 @@ if (!$wisata) {
                 <button type="submit" class="btn-favorit">Tambah ke Favorit</button>
             </form>
         <?php } else { ?>
-            <a href="login.php" class="btn-login-detail">Login untuk menyimpan favorit</a>
+            <a href="login.php" class="btn-primary">Login untuk menyimpan favorit</a>
         <?php } ?>
     </div>
 

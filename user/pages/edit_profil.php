@@ -25,23 +25,25 @@ $query = mysqli_query($koneksi, $sql);
 </head>
 <body>
     <main>
-        <?php while($p = mysqli_fetch_assoc($query)) {?>
-        <form action="../process/proses_edit_profil.php" method="post">
+        <section class = "edit_profil">
+            <?php while($p = mysqli_fetch_assoc($query)) {?>
+            <form action="../process/proses_edit_profil.php" method="post">
 
-            <input type="hidden" name="id_user" value = "<?= $p['id_user'] ?>">
+                <input type="hidden" name="id_user" value = "<?= $p['id_user'] ?>">
 
-            <label for="">Username</label><br>
-            <input type="text" name="username" id="" value = "<?= $p['username'] ?>"><br>
+                <label for="">Username</label><br>
+                <input type="text" name="username" id="" value = "<?= $p['username'] ?>"><br>
 
-            <label for="">Email</label><br>
-            <input type="email" name="email" id="" value = "<?= $p['email'] ?>"><br>
+                <label for="">Email</label><br>
+                <input type="email" name="email" id="" value = "<?= $p['email'] ?>"><br>
 
-            <label for="">Password</label><br>
-            <input type="password" name="password" id=""  value = "<?= $p['password'] ?>"><br>
-            <br>
-            <input type="submit" value="Simpan">
-        </form>
-        <?php } ?>
+                <label for="">Password</label><br>
+                <input type="password" name="password" id=""  value = "<?= $p['password'] ?>"><br>
+                <br>
+                <input type="submit" value="Simpan">
+            </form>
+            <?php } ?>
+        </section>
     </main>
 </body>
 </html>

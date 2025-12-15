@@ -6,19 +6,24 @@
     <title>Halaman Register</title>
 </head>
 <body>
-    <h1>Silakan Register</h1>
-    <br>
-    <form action="../process/proses_register.php" method="post">
-        <label for="">Username</label><br>
-        <input type="text" name="username"><br>
-
-        <label for="">Password</label><br>
-        <input type="password" name="password" id=""><br>
-
-        <label for="">Email</label><br>
-        <input type="email" name="email" id=""><br>
+    <section class = "register-container">
+        <h1>Silakan Register</h1>
         <br>
-        <input type="submit" value="Register">
-    </form>
+        <form action="../process/proses_register.php" method="post">
+            <label for="">Username</label><br>
+            <input type="text" name="username"><br>
+
+            <label for="">Password</label><br>
+            <input type="password" name="password" id=""><br>
+
+            <label for="">Email</label><br>
+            <input type="email" name="email" id=""><br>
+            <br>
+            <input type="submit" value="Register">
+            <hr>
+            <p>Sudah punya akun? <a href="login.php">Login</a></p>
+        </form>
+    </section>
+    
 </body>
 </html>

@@ -3,6 +3,7 @@
 session_start();
 
 include '../includes/koneksi.php';
+include '../includes/header.php';
 
 if (!isset($_SESSION['id_user'])) {
     header('Location: login.php?login_dulu');
@@ -26,15 +27,22 @@ $query = mysqli_query($koneksi, $sql);
 </head>
 <body>
     <main>
-        <div class="card-profil">
-            <?php while($p = mysqli_fetch_assoc($query)) {?>
-                <p><b>Username : </b><?= $p['username']?></p>
-                <p><b>Email    :</b><?= $p['email']?></p>
-                <p><b>Password :</b>************</p>
-            <?php } ?>
-            <button><a href="edit_profil.php?id_user=<?= $id_user;?>">Edit</a></button>
+        <button class="btn-primary">
+            <a href="../process/logout.php">Logout</a>
+        </button>
+        <section class = "profil-container">
+            <article class="card-profil">
+                <?php while($p = mysqli_fetch_assoc($query)) {?>
+                    <p><b>Username : </b><?= $p['username']?></p>
+                    <p><b>Email    :</b><?= $p['email']?></p>
+                    <p><b>Password :</b>************</p>
+                <?php } ?>
+                <button><a href="edit_profil.php?id_user=<?= $id_user;?>">Edit</a></button>
+            </article>
+        </section>
+        
 
-        </div>
     </main>
-</body>
-</html>
+<?php
+    include '../includes/footer.php';
+?>

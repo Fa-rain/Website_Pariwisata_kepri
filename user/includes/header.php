@@ -24,9 +24,9 @@
             </div>
 
             <div class="nav-mid">
-                <li><a href="#" id="">Rekomendasi Ikonik</a></li>
-                <li><a href="#" id="openModal">Destinasi Wisata</a></li>
-                <li><a href="#" id="">Rencanakan Perjalananmu</a></li>
+                <li><a href="../pages/rekomendasi.php" id="">Rekomendasi Ikonik</a></li>
+                <li><a href="../pages/wisata.php" id="openModal">Destinasi Wisata</a></li>
+                <li><a href="../pages/rencana_perjalanan.php" id="">Rencanakan Perjalananmu</a></li>
             </div>
 
             <div class="nav-right">
@@ -35,10 +35,5 @@
             </div>
         </ul>
     </div>
-
-    <!-- HERO -->
-     <div class="hero">
-        <img src="../assets/images/builder/website_banner.png" alt="" class="banner">
-     </div>
 
 </header>

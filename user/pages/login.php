@@ -95,7 +95,7 @@
 </head>
 <body>
 
-    <div class="login-container">
+    <section class="login-container">
         <h1>Silakan Login</h1>
 
         <form action="../process/proses_login.php" method="post">
@@ -106,8 +106,11 @@
             <input type="password" name="password">
 
             <input type="submit" value="Login">
+            <hr>
+            <p>belum punya akun?<a href="register.php">Register dulu</a></p>
+            
         </form>
-    </div>
+    </section>
 
 </body>
 </html>

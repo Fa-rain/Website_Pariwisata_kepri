@@ -1,49 +1,77 @@
 <?php
-
 include '../../includes/koneksi.php';
 
-$sql = 'SELECT id_wisata, path, nama_wisata, nama_kategori FROM wisata w JOIN kategori k ON
-        w.id_kategori = k.id_kategori';
+$sql = "SELECT id_wisata, path, nama_wisata, nama_kategori 
+        FROM wisata w 
+        JOIN kategori k ON w.id_kategori = k.id_kategori";
 $query = mysqli_query($koneksi, $sql);
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Kelola Wisata</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Kelola Wisata</h1>
-    <button class = "btn-success"><a href="tambah_wisata.php">Tambah Wisata</a></button><br>
-    <table border = '1' style = "width: 100%">
-        <tr>
-            <th>Gambar</th>
-            <th>Nama Wisata</th>
-            <th>Nama Kategori</th>
-            <th>Aksi</th>
-        </tr>
-        <?php while($w = mysqli_fetch_assoc($query)) {?>
-        <tr>
-            <td><img src='../../../images/wisata/<?= $w['path']?>' alt='<?= $w['nama_wisata']?>' width = '20%'></td>
-            <td><?= $w['nama_wisata']?></td>
-            <td><?= $w['nama_kategori']?></td>
-            <td>
-                <a href="edit_wisata.php?id_wisata=<?= $w['id_wisata']?>">Edit</a>
-                <a href="hapus_wisata.php?id_wisata=<?= $w['id_wisata']?>">Hapus</a>
-                <a href="detail_wisata.php?id_wisata=<?= $w['id_wisata']?>">Detail</a>
-                
-            </td>
-        </tr>
-        <?php } ?>
-    </table>
+
+<section class="container">
+    
+    <div class="header">
+        <h1>Kelola Wisata</h1>
+        <a href="tambah.php" class="btn-success">+ Tambah Wisata</a>
+    </div>
+    
+    <article>
+        <table class="tabel-wisata">
+            <thead>
+                <tr>
+                    <th>Gambar</th>
+                    <th>Nama Wisata</th>
+                    <th>Kategori</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php while($w = mysqli_fetch_assoc($query)) { ?>
+                <tr>
+                    <td>
+                        <img 
+                            src='../../../images/wisata/<?= $w['path']?>' 
+                            alt='<?= $w['nama_wisata']?>'
+                            class="img-wisata">
+                    </td>
+                    <td><?= $w['nama_wisata']?></td>
+                    <td><?= $w['nama_kategori']?></td>
+                    <td class="aksi">
+                        <a href="detail.php?id_wisata=<?= $w['id_wisata']?>" class="btn-primary">Detail</a>
+                        <a href="hapus.php?id_wisata=<?= $w['id_wisata']?>" class="btn-danger">Hapus</a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+
+        </table>
+    </article>
+</section>
+
 </body>
 </html>
-
-
-
-
-
-

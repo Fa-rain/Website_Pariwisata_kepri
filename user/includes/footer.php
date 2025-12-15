@@ -1,9 +1,5 @@
-<footer>
-    <div class="footer">
-        <hr>
+    <footer class="footer">
         <center><p>Pariwisata Kepri copyright@2025</p></center>
-    </div>
-</footer>
-
+    </footer>
 </body>
 </html>
